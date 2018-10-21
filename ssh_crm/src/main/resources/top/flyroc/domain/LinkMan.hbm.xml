@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="top.flyroc.domain">
+	<class name="LinkMan" table="cst_linkman">
+		<id name="lkm_id">
+			<!-- 主键生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<property name="lkm_name"></property>
+		<property name="lkm_gender"></property>
+		<property name="lkm_phone"></property>
+		<property name="lkm_mobile"></property>
+		<property name="lkm_email"></property>
+		<property name="lkm_qq"></property>
+
+		<!-- 多对一(由于外键字段在多的一方，因此其不能放弃维护关系)  -->
+		<!--
+			name	多的一方所持的引用属性名
+			column	多的一方外键列名
+			class	与我关联的对象完整类名
+		 -->
+		 <!--
+		 	级联操作cascade(目的:简化操作，少写两行代码。)
+		 		save-update:	级联保存更新
+		 		delete:			级联删除
+		 		all:			save+update+delete
+		  -->
+		<many-to-one name="customer" column="lkm_cust_id" class="Customer"></many-to-one>
+	</class>
+</hibernate-mapping>
