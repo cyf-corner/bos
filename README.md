@@ -1,2 +1,2 @@
 # CRMRep
-基于ssh的crm小项目
+基于ssh的bos物流项目
